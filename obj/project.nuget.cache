@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "tI45mS6zlRJdsWezt1m1Tb0dRYwK+FNvlOTqnq0WkdHilsh/2xyKwd2CrpQXIcgIWsmg/eF0T2O4LSFXM5LtOg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Josh\\source\\repos\\minecraft-server-watchdog\\minecraft-server-watchdog.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Josh\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.10.9\\microsoft.visualstudio.azure.containers.tools.targets.1.10.9.nupkg.sha512"
+  ],
+  "logs": []
+}
