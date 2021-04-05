@@ -5,6 +5,7 @@
     <RootNamespace>minecraft_server_watchdog</RootNamespace>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerfileContext>.</DockerfileContext>
+    <DockerfileRunArguments>-v "C:\Users\Josh\Desktop\testing:/mnt:rw"</DockerfileRunArguments>
   </PropertyGroup>
 
   <ItemGroup>

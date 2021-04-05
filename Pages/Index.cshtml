@@ -1,10 +1,40 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Minecraft Instances";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Minecraft Server Instances</h1>
+    <p>Listed below are all the minecraft servers on BASS. To see details and start or stop one of the instances click the details button next to that particular Instance.</p>
+
+    @{ 
+            List<string> names = (List<string>)ViewData["instance-names"];
+            List<string> icons = (List<string>)ViewData["instance-icons"];
+            List<string> descs = (List<string>)ViewData["instance-descs"];
+            List<string> stats = (List<string>)ViewData["instance-stats"];
+        }
+        @for(int i = 0; i < names.Count; i++)
+        {
+<div class="card" style="width: 18rem;">
+    <img class="card-img-top" src ="/index.svg" alt="Card image cap" />
+    <div class="card-body">
+        <h5 class="card-title">@names[i]</h5>
+        <p class="card-text">
+            @descs[i]
+        </p>
+        <a href="/details?id=@i" class="btn btn-primary float-left">Details</a>
+        @if (stats[i] == "True")
+        {
+
+            <h2 class="float-right"><i class="fas fa-thumbs-up float-right"></i></h2>
+        }
+        else
+        {
+            <h2 class="float-right"><i class="fas fa-thumbs-down d-inline-block float-right"></i></h2>
+        }
+    </div>
+    
+</div>
+        }
 </div>

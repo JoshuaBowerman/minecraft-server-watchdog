@@ -19,6 +19,22 @@ namespace minecraft_server_watchdog.Pages
 
         public void OnGet()
         {
+            List<string> names = new List<string>();
+            List<string> icons = new List<string>();
+            List<string> descs = new List<string>();
+            List<string> stats = new List<string>();
+
+            for(int i = 0; i < ServerManager.instances.Count; i++)
+            {
+                names.Add(ServerManager.instances[i].info.ServerName);
+                icons.Add(ServerManager.instances[i].info.IconLocation);
+                descs.Add(ServerManager.instances[i].info.Description);
+                stats.Add(ServerManager.instances[i].getServerState() ? "True":"False");
+            }
+            ViewData["instance-names"] = names;
+            ViewData["instance-icons"] = icons;
+            ViewData["instance-descs"] = descs;
+            ViewData["instance-stats"] = stats;
 
         }
     }

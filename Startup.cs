@@ -15,6 +15,7 @@ namespace minecraft_server_watchdog
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            ServerManager.Initialize("/mnt");
         }
 
         public IConfiguration Configuration { get; }
