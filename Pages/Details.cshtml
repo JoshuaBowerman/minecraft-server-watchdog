@@ -5,7 +5,27 @@
 }
 
 
-<h2>@ViewData["name"]</h2>
+<h2 class="display-4">@ViewData["name"]</h2>
 <p>
-    <b></b>
+    <b>Description: </b> @ViewData["desc"]
+    <br />
+    <b>Modpack: </b> @ViewData["pack"]<br />
+    <b>Java Version: </b> @ViewData["java"]<br />
+    <b>Ram Min/Max: </b> @ViewData["minr"] / @ViewData["maxr"]<br />
+    <b>Jar Location: </b> @ViewData["jar"]<br />
+    <b>Auto Start: </b> @ViewData["as"]<br />
+    <b>Auto Restart: </b> @ViewData["ars"]<br />
+    <br />
+    <b>Is Running: </b> @ViewData["state"]<br />
+    <a href ="/Details?id=@ViewData["id"]&action=start" class="btn btn-success">Start</a> <a href="/Details?id=@ViewData["id"]&action=stop" class="btn btn-danger">Stop</a>
+
+    <h2>Log</h2>
+    <div class="overflow-auto" style="max-width: 100%; max-height: 40rem;"><p style="white-space:nowrap">@foreach(string line in ViewData["log"].ToString().Split("<line>"))
+    {
+        <br />@line
+    }
+
+
+             </p></div>
+    <form><div class="form-group"><input type="text" class="form-control" id="command" placeholder="Command to Run" /></div><button type="submit" class="btn btn-primary">Submit</button></form>
 </p>

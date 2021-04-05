@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-
+using System.IO;
 namespace minecraft_server_watchdog.Pages
 {
     public class DetailsModel : PageModel
@@ -33,8 +33,24 @@ namespace minecraft_server_watchdog.Pages
             ViewData["ars"] = ServerManager.instances[id].info.AutoRestart;
             ViewData["as"] = ServerManager.instances[id].info.AutoStart;
             ViewData["jar"] = ServerManager.instances[id].info.jarLoc;
+            ViewData["id"] = "" + id;
 
+            //Find the latest log
 
+            string result = "";
+            if (System.IO.File.Exists(ServerManager.instances[id].info.ServerFolderLocation + "/logs/latest.log"))
+            {
+                string[] log = System.IO.File.ReadAllLines(ServerManager.instances[id].info.ServerFolderLocation + "/logs/latest.log");
+
+                for(int i = log.Length - 250; i < log.Length; i++ )
+                {
+                    if(i >= 0)
+                        result += "<line>" + log[i];
+                }
+            }
+            
+
+            ViewData["log"] = result;
         }
     }
 }
